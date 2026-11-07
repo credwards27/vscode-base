@@ -1,0 +1,30 @@
+{
+  "name": "vscode-base",
+  "displayName": "VSCode Base (credwards27)",
+  "description": "Base shared configuration extension for VSCode.",
+  "version": "0.0.1",
+  "author": {
+    "name": "credwards27"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/credwards27/vscode-base.git"
+  },
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Themes",
+    "Snippets"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Slate",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Slate.json"
+      }
+    ]
+  }
+}
