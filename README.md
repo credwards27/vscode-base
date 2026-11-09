@@ -34,8 +34,12 @@ npm run upgrade
 - `code` CLI tool
   - [Installing VSCode CLI](https://code.visualstudio.com/docs/configure/command-line)
 
-### Extensions
+### Required Extensions
 
 - [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
 - [Paste and Indent](https://marketplace.visualstudio.com/items?itemName=Rubymaniac.vscode-paste-and-indent)
+
+### Recommended Extensions
+
+- [File Utils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils)
 - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
