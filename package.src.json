@@ -16,6 +16,7 @@
     "vscode": "^1.103.0"
   },
   "scripts": {
+    "compile": "npm run compile:package && npm run compile:snippets",
     "compile:package": "node compile/package.js",
     "compile:snippets": "node compile/snippets.js",
     "update": "git checkout main && git pull",
