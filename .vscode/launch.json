@@ -6,6 +6,23 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Attach",
+			"port": 9229,
+			"request": "attach",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Current File",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${file}",
+			"cwd": "${fileDirname}"
+		},
+		{
 			"name": "Extension",
 			"type": "extensionHost",
 			"request": "launch",
