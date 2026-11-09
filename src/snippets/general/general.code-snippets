@@ -1,0 +1,10 @@
+{
+    "Shebang header for executable files": {
+        "prefix": "///bang",
+        "body": [
+            "#!/usr/bin/env${1: executable}",
+            "${0}"
+        ],
+        "description": "Shebang header for executable files"
+    }
+}

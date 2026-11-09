@@ -1,0 +1,10 @@
+{
+    "WordPress safe file header": {
+        "prefix": "///wpsafe",
+        "scope": "php",
+        "body": [
+            "!defined('ABSPATH') && exit;"
+        ],
+        "description": "WordPress safe file header"
+    }
+}

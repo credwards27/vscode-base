@@ -1,0 +1,21 @@
+{
+    "Mocha 'describe' block": {
+        "prefix": "///mdesc",
+        "scope": "javascript,typescript",
+        "body": [
+            "describe('${1:Behavior}', function() {${0}",
+            "});"
+        ],
+        "description": "Mocha 'describe' block"
+    },
+    
+    "Mocha 'it' block": {
+        "prefix": "///mit",
+        "scope": "javascript,typescript",
+        "body": [
+            "it('${1:expected behavior}', function() {${0}",
+            "});"
+        ],
+        "description": "Mocha 'it' block"
+    }
+}

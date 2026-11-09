@@ -2,7 +2,7 @@
   "name": "vscode-base",
   "displayName": "VSCode Base (credwards27)",
   "description": "Base shared configuration extension for VSCode.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "credwards27"
   },
@@ -17,6 +17,7 @@
   },
   "scripts": {
     "compile:package": "node compile/package.js",
+    "compile:snippets": "node compile/snippets.js",
     "update": "git checkout main && git pull",
     "clean": "if [ -d \"dist\" ]; then rm dist/*.vsix; fi",
     "build": "mkdir -p dist && npx @vscode/vsce package --out dist",
@@ -34,6 +35,11 @@
         "label": "Slate",
         "uiTheme": "vs-dark",
         "path": "./themes/Slate.json"
+      }
+    ],
+    "snippets": [
+      {
+        "path": "./src/snippets.code-snippets"
       }
     ]
   }

@@ -1,0 +1,143 @@
+{
+    "ESNext import call": {
+        "prefix": "///imp",
+        "scope": "javascript,typescript",
+        "body": [
+            "import ${1:dep} from '${2}';${0}"
+        ],
+        "description": "ES6 import call"
+    },
+    
+    "ESNext class template": {
+        "prefix": "///class",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of class.}",
+            "*/",
+            "${3:export ${2:default }}class ${4:ClassName} ${6:extends ${5:ParentClassName} }{",
+            "\t//",
+            "\t// PROPERTIES",
+            "\t//",
+            "\t",
+            "\t/* Constructor for ${4:ClassName}.",
+            "\t*/",
+            "\tconstructor(${7}) {${0}}",
+            "\t",
+            "\t/* Destructor for ${4:ClassName}.",
+            "\t*/",
+            "\tdestroy() {}",
+            "\t",
+            "\t//",
+            "\t// METHODS",
+            "\t//",
+            "}"
+        ],
+        "description": "ESNext class template"
+    },
+    
+    "ESNext class property": {
+        "prefix": "///cvar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:static }${3:myVariable} = ${4:null};"
+        ],
+        "description": "ESNext class property"
+    },
+    
+    "ESNext class method": {
+        "prefix": "///cfunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:static }${3:myFunction}(${4:param}) {",
+            "\tsuper${5:.${3}}(${4});${0}",
+            "}"
+        ],
+        "description": "ESNext class method"
+    },
+    
+    "ESNext class arrow method": {
+        "prefix": "///cafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction} = (${3:param}) => {${0}",
+            "};"
+        ],
+        "description": "ESNext class arrow method"
+    },
+    
+    "ESNext class getter/setter declaration": {
+        "prefix": "///gs",
+        "scope": "javascript,typescript",
+        "body": [
+            "${4:/* Getter for ${1:prop}.",
+            "\t",
+            "\tReturns${3: the current ${2:alias} value.}",
+            "*/",
+            "get ${2:alias}() {",
+            "\treturn this.${1:prop};",
+            "\\}",
+            "}${7:",
+            "/* Setter for ${1:prop}.",
+            "\t",
+            "\t${5:val} - ${6:New value for ${2:alias}.}",
+            "*/",
+            "set ${2:alias}(${5:val}) {",
+            "\tthis.${1:prop} = ${5:val};",
+            "\\}}${0}"
+        ],
+        "description": "JS class getter/setter declaration"
+    },
+    
+    "ESNext BaseError class": {
+        "prefix": "///esberr",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* Extendable error base class.",
+            "*/",
+            "${2:export ${1:default }}class BaseError extends Error {",
+            "\t/* Constructor for BaseError.",
+            "\t\t",
+            "\t\tmsg - Error message to display.",
+            "\t*/",
+            "\tconstructor(msg) {",
+            "\t\tsuper(msg);",
+            "\t\t",
+            "\t\tthis.name = this.constructor.name;",
+            "\t\tthis.message = msg;",
+            "\t\t",
+            "\t\tif (typeof Error.captureStackTrace === 'function') {",
+            "\t\t\tError.captureStackTrace(this, this.constructor);",
+            "\t\t}",
+            "\t\telse {",
+            "\t\t\tthis.stack = (new Error(msg)).stack;",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "ESNext BaseError class"
+    },
+    
+    "ESNext custom error class": {
+        "prefix": "///eserr",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:ErrorName} class.",
+            "*/",
+            "class ${1:ErrorName} extends BaseError {",
+            "\t/* Constructor for ${1:ErrorName}.",
+            "\t\t",
+            "\t\tmsg - Error message to display.",
+            "\t*/",
+            "\tconstructor(msg) {",
+            "\t\tsuper(msg);",
+            "\t}",
+            "}"
+        ],
+        "description": "ESNext custom error class"
+    }
+}

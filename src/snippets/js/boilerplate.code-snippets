@@ -1,0 +1,112 @@
+{
+    "JS file header": {
+        "prefix": "///jsh",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${TM_FILENAME}",
+            "\t",
+            "\t${1:Description of file.}",
+            "*/",
+            ""
+        ],
+        "description": "JS file header"
+    },
+    
+    "JS file browser boilerplate": {
+        "prefix": "///jsb",
+        "scope": "javascript,typescript",
+        "body": [
+            ";(function(w,${2: \\$, }undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "// Code here${0}",
+            "",
+            "})(window,${3: window.jQuery, }void 0);"
+        ],
+        "description": "JS file browser boilerplate"
+    },
+    
+    "JS file boilerplate ('this' env instead of 'window')": {
+        "prefix": "///jse",
+        "scope": "javascript,typescript",
+        "body": [
+            ";(function(env, undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "// Code here${0}",
+            "",
+            "})(this, void 0);"
+        ],
+        "description": "JS file boilerplate ('this' env instead of 'window')"
+    },
+    
+    "JS jQuery self-contained system boilerplate": {
+        "prefix": "///jqsys",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${TM_FILENAME}",
+            "\t",
+            "\t${1:Description of self-contained jQuery system.}",
+            "\t",
+            "\tRequires jQuery ${2:x.x.x} or higher.",
+            "\t",
+            "\tVersion 0.0.1",
+            "*/",
+            "",
+            ";(function(env, undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "/* Global system controller.",
+            "\t\\$ - Localized reference active jQuery instance at script load time.",
+            "*/",
+            "let ${3:mySystem} = ${3:mySystem} || (function(\\$) {",
+            "\t// Create system instance",
+            "\tlet sys = function(args) { return new sys.fn.init(args); };",
+            "\t",
+            "\t// Create system controller prototype (and set alias)",
+            "\tsys.fn = sys.prototype = {",
+            "\t\t//",
+            "\t\t// GLOBAL SYSTEM OBJECTS AND VARIABLES",
+            "\t\t//",
+            "\t\t",
+            "\t\t// Collection of global objects and variables for the system.",
+            "\t\tg: {},",
+            "\t\t",
+            "\t\t//",
+            "\t\t// STATIC PROTOTYPE FUNCTIONS",
+            "\t\t//",
+            "\t\t",
+            "\t\t/* Default initializer function.",
+            "\t\t\targs - Arguments.",
+            "\t\t*/",
+            "\t\tinit: function(args) {",
+            "\t\t\treturn this;",
+            "\t\t},",
+            "\t\t",
+            "\t\t//",
+            "\t\t// SYSTEM CLASSES",
+            "\t\t//",
+            "\t\t",
+            "\t\t// Collection of object classes for the system.",
+            "\t\tc: {}",
+            "\t};",
+            "\t",
+            "\t//",
+            "\t// SYSTEM INITIALIZERS",
+            "\t//",
+            "\t",
+            "\t// Set system object prototype",
+            "\tsys.fn.init.prototype = sys.fn;",
+            "\t",
+            "\t// Return the system instance",
+            "\treturn sys;",
+            "})(env.jQuery);",
+            "",
+            "})(this, void 0);"
+        ],
+        "description": "JS jQuery self-contained system boilerplate"
+    }
+}

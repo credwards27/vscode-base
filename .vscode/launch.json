@@ -23,6 +23,14 @@
 			"cwd": "${fileDirname}"
 		},
 		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Snippets",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/compile/snippets.js",
+			"cwd": "${workspaceFolder}/compile"
+		},
+		{
 			"name": "Extension",
 			"type": "extensionHost",
 			"request": "launch",

@@ -1,0 +1,61 @@
+{
+    "React component boilerplate": {
+        "prefix": "///rcomp",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Dependencies.",
+            "import React from 'react';",
+            "",
+            "/* ${1:Component description.}",
+            "\t",
+            "\tprops - Component properties.",
+            "*/",
+            "export default (props) => {${0}",
+            "};"
+        ],
+        "description": "React component boilerplate"
+    },
+    
+    "React component class boilerplate": {
+        "prefix": "///rccomp",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Dependencies.",
+            "import React, { Component } from 'react';",
+            "",
+            "/* ${1:Component description.}",
+            "*/",
+            "export default class ${2:ClassName} extends Component {",
+            "\t${3:/* Constructor for ${2:ClassName}.",
+            "\t\t",
+            "\t\tprops - Component properties.",
+            "\t*/",
+            "\tconstructor(props) {",
+            "\t\tsuper(props);",
+            "\t\\}",
+            "\t",
+            "\t}${4:/* Component mount handler.",
+            "\t*/",
+            "\tcomponentDidMount() {\\}",
+            "\t",
+            "\t}${5:/* Component unmount handler.",
+            "\t*/",
+            "\tcomponentWillUnmount() {\\}",
+            "\t",
+            "\t}/* Renders the component.",
+            "\t*/",
+            "\trender() {${0}}",
+            "}"
+        ],
+        "description": "React component class boilerplate"
+    },
+    
+    "React component JSX ref property": {
+        "prefix": "///ref",
+        "scope": "javascript,typescript",
+        "body": [
+            "ref={(r) => { this.${1:_elem} = r; }}"
+        ],
+        "description": "React component JSX ref property"
+    }
+}

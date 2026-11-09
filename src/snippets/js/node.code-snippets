@@ -1,0 +1,96 @@
+{
+    "Node require() call": {
+        "prefix": "///req",
+        "scope": "javascript,typescript",
+        "body": [
+            "${1:const }${2:dep} = require('${3}'),${0}"
+        ],
+        "description": "Node require() call"
+    },
+    
+    "Node __filename polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';`)": {
+        "prefix": "///filename",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ES6 module __filename.",
+            "${1:const }__filename = fileURLToPath(import.meta.url),"
+        ],
+        "description": "Node __filename polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';`)"
+    },
+    
+    "Node __dirname polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';` and import path from 'node:path';)": {
+        "prefix": "///dirname",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ES6 module __dirname.",
+            "${1:const }__dirname = path.dirname(${2:fileURLToPath(import.meta.url)}),"
+        ],
+        "description": "Node __dirname polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';` and import path from 'node:path';)"
+    },
+    
+    "Node process.exit() call": {
+        "prefix": "///pe",
+        "scope": "javascript,typescript",
+        "body": [
+            "process.exit(${1});"
+        ],
+        "description": "Node process.exit() call"
+    },
+    
+    "Node CLI script boilerplate": {
+        "prefix": "///nodecli",
+        "scope": "javascript,typescript",
+        "body": [
+            "#!/usr/bin/env node",
+            "",
+            "///jsh${1}${0}",
+            "'use strict';",
+            "",
+            "// Dependencies.",
+            "const minimist = require('minimist'),",
+            "\tminimistOpts = require('minimist-options'),",
+            "\tfs = require('fs'),",
+            "\t",
+            "\t// Script parameter options.",
+            "\tARG_OPTS = {",
+            "\t\thelp: {",
+            "\t\t\ttype: 'boolean'",
+            "\t\t}",
+            "\t},",
+            "\t",
+            "\t// Command line arguments.",
+            "\tARGS = Object.freeze(",
+            "\t\tminimist(process.argv.slice(2), minimistOpts(ARG_OPTS)));",
+            "",
+            "/* Shows an error message and exits.",
+            "\t",
+            "\tmsg - Error message to display.",
+            "\thelp - True to show the help text in addition to the error, false otherwise.",
+            "*/",
+            "function showError(msg, help) {",
+            "\tconsole.error(msg);",
+            "\t",
+            "\tif (help) {",
+            "\t\tshowHelp();",
+            "\t}",
+            "\telse {",
+            "\t\tprocess.exit();",
+            "\t}",
+            "}",
+            "",
+            "/* Shows the help text.",
+            "*/",
+            "function showHelp() {",
+            "\tprocess.exit();",
+            "}",
+            "",
+            "// Main execution entry point",
+            ";(function(undefined) {",
+            "\tif (ARGS['help']) {",
+            "\t\tshowHelp();",
+            "\t}",
+            "})(void 0);"
+        ],
+        "description": "Node CLI script boilerplate"
+    }
+}

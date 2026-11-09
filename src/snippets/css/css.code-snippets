@@ -1,0 +1,50 @@
+{
+    "CSS file boilerplate": {
+        "prefix": "///css",
+        "scope": "css,scss",
+        "body": [
+            "@charset 'UTF-8';",
+            "",
+            "/* Meta */",
+            "",
+            "body {",
+            "\tmargin: 0;",
+            "}",
+            "body * {",
+            "\t-webkit-box-sizing: border-box;",
+            "\t-moz-box-sizing: border-box;",
+            "\tbox-sizing: border-box;",
+            "}",
+            "",
+            "/* Layout */",
+            ""
+        ],
+        "description": "CSS file boilerplate"
+    },
+    
+    "SCSS file boilerplate": {
+        "prefix": "///scss",
+        "scope": "scss",
+        "body": [
+            "@charset 'UTF-8';",
+            "",
+            "/* Imports */",
+            "",
+            "/* Meta */",
+            "",
+            "body {",
+            "\tmargin: 0;",
+            "\t",
+            "\t* {",
+            "\t\t-webkit-box-sizing: border-box;",
+            "\t\t-moz-box-sizing: border-box;",
+            "\t\tbox-sizing: border-box;",
+            "\t}",
+            "}",
+            "",
+            "/* Layout */",
+            ""
+        ],
+        "description": "SCSS file boilerplate"
+    }
+}

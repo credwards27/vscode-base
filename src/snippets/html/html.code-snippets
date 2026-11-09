@@ -1,0 +1,20 @@
+{
+    "HTML file boilerplate": {
+        "prefix": "///html",
+        "scope": "html,php",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">",
+            "<title>${1:Untitled}</title>",
+            "</head>",
+            "",
+            "<body>",
+            "</body>",
+            "</html>",
+            ""
+        ],
+        "description": "HTML file boilerplate"
+    }
+}

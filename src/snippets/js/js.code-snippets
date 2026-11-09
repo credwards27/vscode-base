@@ -1,0 +1,267 @@
+{
+    "JS variable": {
+        "prefix": "///var",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:const }${3:myVariable} = ${4:null},${0}"
+        ],
+        "description": "JS variable"
+    },
+    
+    "JS variable (property)": {
+        "prefix": "///pvar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:this.}${3:myVariable} = ${4:null};"
+        ],
+        "description": "JS variable (this)"
+    },
+    
+    "JS variable (object property)": {
+        "prefix": "///ovar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:myVariable}: ${3:null},${0}"
+        ],
+        "description": "JS variable (object property)"
+    },
+    
+    "JS function declaration": {
+        "prefix": "///func",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "function ${2:myFunction}(${3:param}) {${0}",
+            "}"
+        ],
+        "description": "JS function declaration"
+    },
+    
+    "JS arrow function declaration": {
+        "prefix": "///afunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "${2:/* ${1:Description of function.}",
+            "*/",
+            "}(${3:params}) => {${0}",
+            "}${4}"
+        ],
+        "description": "JS arrow function declaration"
+    },
+    
+    "JS function declaration (property)": {
+        "prefix": "///pfunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:this.}${3:myFunction} = function(${4:param}) {${0}",
+            "};"
+        ],
+        "description": "JS function declaration (property)"
+    },
+    
+    "JS arrow function declaration (property)": {
+        "prefix": "///pafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:this.}${3:myFunction} = (${4:param}) => {${0}",
+            "};"
+        ],
+        "description": "JS arrow function declaration (property)"
+    },
+    
+    "JS function declaration (object property)": {
+        "prefix": "///ofunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction}: function(${3:param}) {${0}",
+            "}${4:,}"
+        ],
+        "description": "JS function declaration (object property)"
+    },
+
+    "JS arrow function declaration (object property)": {
+        "prefix": "///oafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction}: (${3:param}) => {${0}",
+            "}${4:,}"
+        ],
+        "description": "JS arrow function declaration (object property)"
+    },
+    
+    "JS IIFE": {
+        "prefix": "///iife",
+        "scope": "javascript,typescript",
+        "body": [
+            "(function(${1:params}) {${0}",
+            "})(${2:args});"
+        ],
+        "description": "JS IIFE"
+    },
+    
+    "JS arrow IIFE": {
+        "prefix": "///aiife",
+        "scope": "javascript,typescript",
+        "body": [
+            "((${1:params}) => {${0}",
+            "})(${2:args});"
+        ],
+        "description": "JS arrow IIFE"
+    },
+    
+    "JS closure": {
+        "prefix": "///close",
+        "scope": "javascript,typescript",
+        "body": [
+            "(function(${1:params}) {",
+            "\treturn function() {${0}",
+            "\t};",
+            "})(${2:args})"
+        ],
+        "description": "JS closure"
+    },
+    
+    "JS arrow closure": {
+        "prefix": "///aclose",
+        "scope": "javascript,typescript",
+        "body": [
+            "((${1:params}) => {",
+            "\treturn () => {${0}",
+            "\t};",
+            "})(${2:args})"
+        ],
+        "description": "JS arrow closure"
+    },
+    
+    "JS for loop boilerplate": {
+        "prefix": "///for",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:i}=${3:0}${7:, ${4:l}=${6:${5:arr}.length}}; ${2}<${8:${4}}; ++${2}) {${0}",
+            "}"
+        ],
+        "description": "JS for loop boilerplate"
+    },
+    
+    "JS reverse for loop boilerplate": {
+        "prefix": "///rfor",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:i}=${5:${3:arr}.length${4:-1}}; ${2}>=${6:0}; --${2}) {${0}",
+            "}"
+        ],
+        "description": "JS reverse for loop boilerplate"
+    },
+    
+    "JS for...in loop boilerplate": {
+        "prefix": "///forin",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:k} in ${3:obj}) {",
+            "\tif (!${3}.hasOwnProperty(${2})) {${4: }continue;${5: }}${0}",
+            "}"
+        ],
+        "description": "JS for...in loop boilerplate"
+    },
+    
+    "JS for...of loop boilerplate": {
+        "prefix": "///forof",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:val} of ${3:obj}) {${0}",
+            "}"
+        ],
+        "description": "JS for...of loop boilerplate"
+    },
+    
+    "JS console log": {
+        "prefix": "///cl",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.log(${1});"
+        ],
+        "description": "JS console log"
+    },
+    
+    "JS console warning": {
+        "prefix": "///cw",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.warn(${1});"
+        ],
+        "description": "JS console warning"
+    },
+    
+    "JS console error": {
+        "prefix": "///ce",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.error(${1});"
+        ],
+        "description": "JS console error"
+    },
+    
+    "JS class template (ES5)": {
+        "prefix": "///es5class",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* Constructor for ${1:MyClass} object.",
+            "*/",
+            "function ${1:MyClass}() {",
+            "\t// Default parameters",
+            "\t",
+            "\t//",
+            "\t// PROPERTIES",
+            "\t//",
+            "\t",
+            "\t// Initializer",
+            "\t;(function() {",
+            "\t}).bind(this)();",
+            "}",
+            "",
+            "${1:MyClass}.prototype = {",
+            "\tconstructor: ${1:MyClass},",
+            "\t",
+            "\t/* Destructor for ${1:MyClass}.",
+            "\t*/",
+            "\tdestroy: function() {},",
+            "\t",
+            "\t//",
+            "\t// METHODS",
+            "\t//${0}",
+            "};",
+            "",
+            "//",
+            "// STATIC PROPERTIES",
+            "//",
+            "",
+            "//",
+            "// STATIC METHODS",
+            "//"
+        ],
+        "description": "JS class template (ES5)"
+    },
+    
+    "JS class inheritance boilerplate": {
+        "prefix": "///subclass",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Inherit from ${2:ParentClass}",
+            "${1:MyClass}.prototype = Object.create(${2:ParentClass}.prototype)",
+            "${1:MyClass}.prototype.constructor = ${1:MyClass};"
+        ],
+        "description": "JS class inheritance boilerplate"
+    }
+}

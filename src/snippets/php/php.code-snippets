@@ -1,0 +1,130 @@
+{
+    "PHP class property declaration": {
+        "prefix": "///var",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @access ${2:private}",
+            " * @var ${3}",
+            " */",
+            "${2} \\$${4:varName} = ${5:null};"
+        ],
+        "description": "PHP class property declaration"
+    },
+    
+    "PHP class constant declaration": {
+        "prefix": "///const",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @const ${2:CONST_NAME}",
+            " */",
+            "const ${2:CONST_NAME} = ${3:value};"
+        ],
+        "description": "PHP class constant declaration"
+    },
+    
+    "PHP function declaration": {
+        "prefix": "///func",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @return ${2}",
+            " */",
+            "function ${3:functionName}(${4:\\$param}) {${0}",
+            "}"
+        ],
+        "description": "PHP function declaration"
+    },
+    
+    "PHP define() with optional check": {
+        "prefix": "///def",
+        "scope": "php",
+        "body": [
+            "${3:!defined('${1:NAME}') && }define('${1:NAME}', ${2:value});$0"
+        ],
+        "description": "PHP define() with optional check"
+    },
+    
+    "PHP class method declaration": {
+        "prefix": "///cfunc",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @access ${2:public}",
+            " *",
+            " * @return ${3}",
+            " */",
+            "${2} function ${4:functionName}(${5:\\$param}) {",
+            "\tparent::${4}(${5});${0}",
+            "}"
+        ],
+        "description": "PHP class method declaration"
+    },
+
+    "PHP abstract class method declaration": {
+        "prefix": "///abfunc",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @abstract",
+            " * @access ${2:public}",
+            " */",
+            "abstract ${2} function ${4:functionName}(${5:\\$param});"
+        ],
+        "description": "PHP abstract class method declaration"
+    },
+    
+    "PHP static variable declaration": {
+        "prefix": "///svar",
+        "scope": "php",
+        "body": [
+            "static \\$${1:varName} = null;",
+            "",
+            "if (null === \\$${1:varName}) {",
+            "\t\\$${1:varName} = ${2:null};${0}",
+            "}"
+        ],
+        "description": "PHP static variable declaration"
+    },
+    
+    "PHP safe isset() and compare": {
+        "prefix": "///icomp",
+        "scope": "php",
+        "body": [
+            "@isset(${1:var}) && ${2:value} ${3:===} ${1}"
+        ],
+        "description": "PHP safe isset() and compare"
+    },
+    
+    "PHP safe isset() and assignment": {
+        "prefix": "///istore",
+        "scope": "php",
+        "body": [
+            "@isset(${1:var}) ? ${1} : ${2:null};"
+        ],
+        "description": "PHP safe isset() and assignment"
+    },
+    
+    "PHP debug <pre>": {
+        "prefix": "///pre",
+        "scope": "php",
+        "body": [
+            "echo '<pre>';",
+            "var_dump(${1});${0}",
+            "echo '</pre>';${2:",
+            "exit;}"
+        ],
+        "description": "PHP debug <pre>"
+    }
+}

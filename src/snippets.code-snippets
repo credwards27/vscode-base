@@ -1,0 +1,963 @@
+{
+    "Bash script template": {
+        "prefix": "///bash",
+        "scope": "shellscript",
+        "body": [
+            "#!/bin/bash",
+            "",
+            "function main() {",
+            "\t#",
+            "\t# Get arguments",
+            "\t#",
+            "\t",
+            "\tlocal args=( \"\\$@\" ) \\",
+            "\t\tflag_arg value_arg key",
+            "\t",
+            "\tfor arg in \"\\${args[@]}\"; do",
+            "\t\tkey=\"\\$1\"",
+            "\t\t",
+            "\t\tcase \\$key in",
+            "\t\t\t# Flag",
+            "\t\t\t-f|--flag)",
+            "\t\t\tflag_arg=1",
+            "\t\t\t;;",
+            "\t\t\t",
+            "\t\t\t# Key value pair",
+            "\t\t\t-a|--arg)",
+            "\t\t\targ_name=\"\\$2\"",
+            "\t\t\tshift",
+            "\t\t\t;;",
+            "\t\t\t",
+            "\t\t\t# Show help message",
+            "\t\t\t--help)",
+            "\t\t\tshowHelp",
+            "\t\t\treturn 0",
+            "\t\t\t;;",
+            "\t\t\t",
+            "\t\t\t# Implicit ordered argument",
+            "\t\t\t*)",
+            "\t\t\t;;",
+            "\t\tesac",
+            "\t\t",
+            "\t\t# Shift to next argument",
+            "\t\tshift",
+            "\tdone",
+            "}",
+            "",
+            "function showHelp() {",
+            "\tlocal concise=\\$1 \\",
+            "\t\tbold=\\$(tput bold) \\",
+            "\t\tnormal=\\$(tput sgr0) \\",
+            "\t\thelp_msg",
+            "\t",
+            "\t# Concise form, used for alerting the user that help exists",
+            "\tif [[ -n \\$concise ]]; then",
+            "\t\tprintf \"Type '${1:script-command} --help' for more information\\n\"",
+            "\t\treturn 0",
+            "\tfi",
+            "\t",
+            "\tread -rd '' help_msg <<EOF",
+            "${1/(.+)/\\U$1/g}(1)                       ${2:Proper Script Name} Manual                       ${1/(.+)/\\U$1/g}(1)",
+            "",
+            "\\${bold}NAME\\${normal}",
+            "\t${1} - ${3:Brief summary of script}",
+            "",
+            "\\${bold}SYNOPSIS\\${normal}",
+            "\t${1} [-a|--arg <value>] [-f|--flag] [--help] <implicit ordered arg>",
+            "",
+            "\\${bold}DESCRIPTION\\${normal}",
+            "\t${4:Full description of script.}",
+            "",
+            "\\${bold}OPTIONS\\${normal}",
+            "\t-a|--arg <value>",
+            "\t\tExplanation of argument.",
+            "\t",
+            "\t-f|--flag",
+            "\t\tExplanation of flag",
+            "\t",
+            "\t--help",
+            "\t\tDisplays this help information.",
+            "",
+            "\\${bold}BASIC USAGE\\${normal}",
+            "\t${1} --arg \"example value\" -f",
+            "\t\tDescription of this use case.",
+            "",
+            "\\${bold}AUTHOR\\${normal}",
+            "\t${5:Author Name} <${6:author email or handle}>",
+            "",
+            "\\${bold}LICENSE (ISC)\\${normal}",
+            "\tCopyright (c) ${10} ${5:Author Name} <${6:author email or handle}>",
+            "",
+            "\tPermission to use, copy, modify, and/or distribute this software for any",
+            "\tpurpose with or without fee is hereby granted, provided that the above",
+            "\tcopyright notice and this permission notice appear in all copies.",
+            "",
+            "\tTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES",
+            "\tWITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF",
+            "\tMERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY",
+            "\tSPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES",
+            "\tWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION",
+            "\tOF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN",
+            "\tCONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",
+            "",
+            "${2} ${7:1.0.0}                       ${8:MM}/${9:DD}/${10:YYYY}                        ${1/(.+)/\\U$1/g}(1)",
+            "EOF",
+            "\t",
+            "\tprintf \"\\$help_msg\\n\" | less -R",
+            "}",
+            "",
+            "main \"\\$@\""
+        ],
+        "description": "Bash script template"
+    },
+    "CSS file boilerplate": {
+        "prefix": "///css",
+        "scope": "css,scss",
+        "body": [
+            "@charset 'UTF-8';",
+            "",
+            "/* Meta */",
+            "",
+            "body {",
+            "\tmargin: 0;",
+            "}",
+            "body * {",
+            "\t-webkit-box-sizing: border-box;",
+            "\t-moz-box-sizing: border-box;",
+            "\tbox-sizing: border-box;",
+            "}",
+            "",
+            "/* Layout */",
+            ""
+        ],
+        "description": "CSS file boilerplate"
+    },
+    "SCSS file boilerplate": {
+        "prefix": "///scss",
+        "scope": "scss",
+        "body": [
+            "@charset 'UTF-8';",
+            "",
+            "/* Imports */",
+            "",
+            "/* Meta */",
+            "",
+            "body {",
+            "\tmargin: 0;",
+            "\t",
+            "\t* {",
+            "\t\t-webkit-box-sizing: border-box;",
+            "\t\t-moz-box-sizing: border-box;",
+            "\t\tbox-sizing: border-box;",
+            "\t}",
+            "}",
+            "",
+            "/* Layout */",
+            ""
+        ],
+        "description": "SCSS file boilerplate"
+    },
+    "Shebang header for executable files": {
+        "prefix": "///bang",
+        "body": [
+            "#!/usr/bin/env${1: executable}",
+            "${0}"
+        ],
+        "description": "Shebang header for executable files"
+    },
+    "HTML file boilerplate": {
+        "prefix": "///html",
+        "scope": "html,php",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">",
+            "<title>${1:Untitled}</title>",
+            "</head>",
+            "",
+            "<body>",
+            "</body>",
+            "</html>",
+            ""
+        ],
+        "description": "HTML file boilerplate"
+    },
+    "JS file header": {
+        "prefix": "///jsh",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${TM_FILENAME}",
+            "\t",
+            "\t${1:Description of file.}",
+            "*/",
+            ""
+        ],
+        "description": "JS file header"
+    },
+    "JS file browser boilerplate": {
+        "prefix": "///jsb",
+        "scope": "javascript,typescript",
+        "body": [
+            ";(function(w,${2: \\$, }undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "// Code here${0}",
+            "",
+            "})(window,${3: window.jQuery, }void 0);"
+        ],
+        "description": "JS file browser boilerplate"
+    },
+    "JS file boilerplate ('this' env instead of 'window')": {
+        "prefix": "///jse",
+        "scope": "javascript,typescript",
+        "body": [
+            ";(function(env, undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "// Code here${0}",
+            "",
+            "})(this, void 0);"
+        ],
+        "description": "JS file boilerplate ('this' env instead of 'window')"
+    },
+    "JS jQuery self-contained system boilerplate": {
+        "prefix": "///jqsys",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${TM_FILENAME}",
+            "\t",
+            "\t${1:Description of self-contained jQuery system.}",
+            "\t",
+            "\tRequires jQuery ${2:x.x.x} or higher.",
+            "\t",
+            "\tVersion 0.0.1",
+            "*/",
+            "",
+            ";(function(env, undefined) {",
+            "",
+            "'use strict';",
+            "",
+            "/* Global system controller.",
+            "\t\\$ - Localized reference active jQuery instance at script load time.",
+            "*/",
+            "let ${3:mySystem} = ${3:mySystem} || (function(\\$) {",
+            "\t// Create system instance",
+            "\tlet sys = function(args) { return new sys.fn.init(args); };",
+            "\t",
+            "\t// Create system controller prototype (and set alias)",
+            "\tsys.fn = sys.prototype = {",
+            "\t\t//",
+            "\t\t// GLOBAL SYSTEM OBJECTS AND VARIABLES",
+            "\t\t//",
+            "\t\t",
+            "\t\t// Collection of global objects and variables for the system.",
+            "\t\tg: {},",
+            "\t\t",
+            "\t\t//",
+            "\t\t// STATIC PROTOTYPE FUNCTIONS",
+            "\t\t//",
+            "\t\t",
+            "\t\t/* Default initializer function.",
+            "\t\t\targs - Arguments.",
+            "\t\t*/",
+            "\t\tinit: function(args) {",
+            "\t\t\treturn this;",
+            "\t\t},",
+            "\t\t",
+            "\t\t//",
+            "\t\t// SYSTEM CLASSES",
+            "\t\t//",
+            "\t\t",
+            "\t\t// Collection of object classes for the system.",
+            "\t\tc: {}",
+            "\t};",
+            "\t",
+            "\t//",
+            "\t// SYSTEM INITIALIZERS",
+            "\t//",
+            "\t",
+            "\t// Set system object prototype",
+            "\tsys.fn.init.prototype = sys.fn;",
+            "\t",
+            "\t// Return the system instance",
+            "\treturn sys;",
+            "})(env.jQuery);",
+            "",
+            "})(this, void 0);"
+        ],
+        "description": "JS jQuery self-contained system boilerplate"
+    },
+    "ESNext import call": {
+        "prefix": "///imp",
+        "scope": "javascript,typescript",
+        "body": [
+            "import ${1:dep} from '${2}';${0}"
+        ],
+        "description": "ES6 import call"
+    },
+    "ESNext class template": {
+        "prefix": "///class",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of class.}",
+            "*/",
+            "${3:export ${2:default }}class ${4:ClassName} ${6:extends ${5:ParentClassName} }{",
+            "\t//",
+            "\t// PROPERTIES",
+            "\t//",
+            "\t",
+            "\t/* Constructor for ${4:ClassName}.",
+            "\t*/",
+            "\tconstructor(${7}) {${0}}",
+            "\t",
+            "\t/* Destructor for ${4:ClassName}.",
+            "\t*/",
+            "\tdestroy() {}",
+            "\t",
+            "\t//",
+            "\t// METHODS",
+            "\t//",
+            "}"
+        ],
+        "description": "ESNext class template"
+    },
+    "ESNext class property": {
+        "prefix": "///cvar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:static }${3:myVariable} = ${4:null};"
+        ],
+        "description": "ESNext class property"
+    },
+    "ESNext class method": {
+        "prefix": "///cfunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:static }${3:myFunction}(${4:param}) {",
+            "\tsuper${5:.${3}}(${4});${0}",
+            "}"
+        ],
+        "description": "ESNext class method"
+    },
+    "ESNext class arrow method": {
+        "prefix": "///cafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction} = (${3:param}) => {${0}",
+            "};"
+        ],
+        "description": "ESNext class arrow method"
+    },
+    "ESNext class getter/setter declaration": {
+        "prefix": "///gs",
+        "scope": "javascript,typescript",
+        "body": [
+            "${4:/* Getter for ${1:prop}.",
+            "\t",
+            "\tReturns${3: the current ${2:alias} value.}",
+            "*/",
+            "get ${2:alias}() {",
+            "\treturn this.${1:prop};",
+            "\\}",
+            "}${7:",
+            "/* Setter for ${1:prop}.",
+            "\t",
+            "\t${5:val} - ${6:New value for ${2:alias}.}",
+            "*/",
+            "set ${2:alias}(${5:val}) {",
+            "\tthis.${1:prop} = ${5:val};",
+            "\\}}${0}"
+        ],
+        "description": "JS class getter/setter declaration"
+    },
+    "ESNext BaseError class": {
+        "prefix": "///esberr",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* Extendable error base class.",
+            "*/",
+            "${2:export ${1:default }}class BaseError extends Error {",
+            "\t/* Constructor for BaseError.",
+            "\t\t",
+            "\t\tmsg - Error message to display.",
+            "\t*/",
+            "\tconstructor(msg) {",
+            "\t\tsuper(msg);",
+            "\t\t",
+            "\t\tthis.name = this.constructor.name;",
+            "\t\tthis.message = msg;",
+            "\t\t",
+            "\t\tif (typeof Error.captureStackTrace === 'function') {",
+            "\t\t\tError.captureStackTrace(this, this.constructor);",
+            "\t\t}",
+            "\t\telse {",
+            "\t\t\tthis.stack = (new Error(msg)).stack;",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "ESNext BaseError class"
+    },
+    "ESNext custom error class": {
+        "prefix": "///eserr",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:ErrorName} class.",
+            "*/",
+            "class ${1:ErrorName} extends BaseError {",
+            "\t/* Constructor for ${1:ErrorName}.",
+            "\t\t",
+            "\t\tmsg - Error message to display.",
+            "\t*/",
+            "\tconstructor(msg) {",
+            "\t\tsuper(msg);",
+            "\t}",
+            "}"
+        ],
+        "description": "ESNext custom error class"
+    },
+    "JS variable": {
+        "prefix": "///var",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:const }${3:myVariable} = ${4:null},${0}"
+        ],
+        "description": "JS variable"
+    },
+    "JS variable (property)": {
+        "prefix": "///pvar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:this.}${3:myVariable} = ${4:null};"
+        ],
+        "description": "JS variable (this)"
+    },
+    "JS variable (object property)": {
+        "prefix": "///ovar",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ${1:Description of variable.}",
+            "${2:myVariable}: ${3:null},${0}"
+        ],
+        "description": "JS variable (object property)"
+    },
+    "JS function declaration": {
+        "prefix": "///func",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "function ${2:myFunction}(${3:param}) {${0}",
+            "}"
+        ],
+        "description": "JS function declaration"
+    },
+    "JS arrow function declaration": {
+        "prefix": "///afunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "${2:/* ${1:Description of function.}",
+            "*/",
+            "}(${3:params}) => {${0}",
+            "}${4}"
+        ],
+        "description": "JS arrow function declaration"
+    },
+    "JS function declaration (property)": {
+        "prefix": "///pfunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:this.}${3:myFunction} = function(${4:param}) {${0}",
+            "};"
+        ],
+        "description": "JS function declaration (property)"
+    },
+    "JS arrow function declaration (property)": {
+        "prefix": "///pafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:this.}${3:myFunction} = (${4:param}) => {${0}",
+            "};"
+        ],
+        "description": "JS arrow function declaration (property)"
+    },
+    "JS function declaration (object property)": {
+        "prefix": "///ofunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction}: function(${3:param}) {${0}",
+            "}${4:,}"
+        ],
+        "description": "JS function declaration (object property)"
+    },
+    "JS arrow function declaration (object property)": {
+        "prefix": "///oafunc",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* ${1:Description of function.}",
+            "*/",
+            "${2:myFunction}: (${3:param}) => {${0}",
+            "}${4:,}"
+        ],
+        "description": "JS arrow function declaration (object property)"
+    },
+    "JS IIFE": {
+        "prefix": "///iife",
+        "scope": "javascript,typescript",
+        "body": [
+            "(function(${1:params}) {${0}",
+            "})(${2:args});"
+        ],
+        "description": "JS IIFE"
+    },
+    "JS arrow IIFE": {
+        "prefix": "///aiife",
+        "scope": "javascript,typescript",
+        "body": [
+            "((${1:params}) => {${0}",
+            "})(${2:args});"
+        ],
+        "description": "JS arrow IIFE"
+    },
+    "JS closure": {
+        "prefix": "///close",
+        "scope": "javascript,typescript",
+        "body": [
+            "(function(${1:params}) {",
+            "\treturn function() {${0}",
+            "\t};",
+            "})(${2:args})"
+        ],
+        "description": "JS closure"
+    },
+    "JS arrow closure": {
+        "prefix": "///aclose",
+        "scope": "javascript,typescript",
+        "body": [
+            "((${1:params}) => {",
+            "\treturn () => {${0}",
+            "\t};",
+            "})(${2:args})"
+        ],
+        "description": "JS arrow closure"
+    },
+    "JS for loop boilerplate": {
+        "prefix": "///for",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:i}=${3:0}${7:, ${4:l}=${6:${5:arr}.length}}; ${2}<${8:${4}}; ++${2}) {${0}",
+            "}"
+        ],
+        "description": "JS for loop boilerplate"
+    },
+    "JS reverse for loop boilerplate": {
+        "prefix": "///rfor",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:i}=${5:${3:arr}.length${4:-1}}; ${2}>=${6:0}; --${2}) {${0}",
+            "}"
+        ],
+        "description": "JS reverse for loop boilerplate"
+    },
+    "JS for...in loop boilerplate": {
+        "prefix": "///forin",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:k} in ${3:obj}) {",
+            "\tif (!${3}.hasOwnProperty(${2})) {${4: }continue;${5: }}${0}",
+            "}"
+        ],
+        "description": "JS for...in loop boilerplate"
+    },
+    "JS for...of loop boilerplate": {
+        "prefix": "///forof",
+        "scope": "javascript,typescript",
+        "body": [
+            "for (${1:let }${2:val} of ${3:obj}) {${0}",
+            "}"
+        ],
+        "description": "JS for...of loop boilerplate"
+    },
+    "JS console log": {
+        "prefix": "///cl",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.log(${1});"
+        ],
+        "description": "JS console log"
+    },
+    "JS console warning": {
+        "prefix": "///cw",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.warn(${1});"
+        ],
+        "description": "JS console warning"
+    },
+    "JS console error": {
+        "prefix": "///ce",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.error(${1});"
+        ],
+        "description": "JS console error"
+    },
+    "JS class template (ES5)": {
+        "prefix": "///es5class",
+        "scope": "javascript,typescript",
+        "body": [
+            "/* Constructor for ${1:MyClass} object.",
+            "*/",
+            "function ${1:MyClass}() {",
+            "\t// Default parameters",
+            "\t",
+            "\t//",
+            "\t// PROPERTIES",
+            "\t//",
+            "\t",
+            "\t// Initializer",
+            "\t;(function() {",
+            "\t}).bind(this)();",
+            "}",
+            "",
+            "${1:MyClass}.prototype = {",
+            "\tconstructor: ${1:MyClass},",
+            "\t",
+            "\t/* Destructor for ${1:MyClass}.",
+            "\t*/",
+            "\tdestroy: function() {},",
+            "\t",
+            "\t//",
+            "\t// METHODS",
+            "\t//${0}",
+            "};",
+            "",
+            "//",
+            "// STATIC PROPERTIES",
+            "//",
+            "",
+            "//",
+            "// STATIC METHODS",
+            "//"
+        ],
+        "description": "JS class template (ES5)"
+    },
+    "JS class inheritance boilerplate": {
+        "prefix": "///subclass",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Inherit from ${2:ParentClass}",
+            "${1:MyClass}.prototype = Object.create(${2:ParentClass}.prototype)",
+            "${1:MyClass}.prototype.constructor = ${1:MyClass};"
+        ],
+        "description": "JS class inheritance boilerplate"
+    },
+    "Mocha 'describe' block": {
+        "prefix": "///mdesc",
+        "scope": "javascript,typescript",
+        "body": [
+            "describe('${1:Behavior}', function() {${0}",
+            "});"
+        ],
+        "description": "Mocha 'describe' block"
+    },
+    "Mocha 'it' block": {
+        "prefix": "///mit",
+        "scope": "javascript,typescript",
+        "body": [
+            "it('${1:expected behavior}', function() {${0}",
+            "});"
+        ],
+        "description": "Mocha 'it' block"
+    },
+    "Node require() call": {
+        "prefix": "///req",
+        "scope": "javascript,typescript",
+        "body": [
+            "${1:const }${2:dep} = require('${3}'),${0}"
+        ],
+        "description": "Node require() call"
+    },
+    "Node __filename polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';`)": {
+        "prefix": "///filename",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ES6 module __filename.",
+            "${1:const }__filename = fileURLToPath(import.meta.url),"
+        ],
+        "description": "Node __filename polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';`)"
+    },
+    "Node __dirname polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';` and import path from 'node:path';)": {
+        "prefix": "///dirname",
+        "scope": "javascript,typescript",
+        "body": [
+            "// ES6 module __dirname.",
+            "${1:const }__dirname = path.dirname(${2:fileURLToPath(import.meta.url)}),"
+        ],
+        "description": "Node __dirname polyfill for ES6 modules (don't forget `import { fileURLToPath } from 'node:url';` and import path from 'node:path';)"
+    },
+    "Node process.exit() call": {
+        "prefix": "///pe",
+        "scope": "javascript,typescript",
+        "body": [
+            "process.exit(${1});"
+        ],
+        "description": "Node process.exit() call"
+    },
+    "Node CLI script boilerplate": {
+        "prefix": "///nodecli",
+        "scope": "javascript,typescript",
+        "body": [
+            "#!/usr/bin/env node",
+            "",
+            "///jsh${1}${0}",
+            "'use strict';",
+            "",
+            "// Dependencies.",
+            "const minimist = require('minimist'),",
+            "\tminimistOpts = require('minimist-options'),",
+            "\tfs = require('fs'),",
+            "\t",
+            "\t// Script parameter options.",
+            "\tARG_OPTS = {",
+            "\t\thelp: {",
+            "\t\t\ttype: 'boolean'",
+            "\t\t}",
+            "\t},",
+            "\t",
+            "\t// Command line arguments.",
+            "\tARGS = Object.freeze(",
+            "\t\tminimist(process.argv.slice(2), minimistOpts(ARG_OPTS)));",
+            "",
+            "/* Shows an error message and exits.",
+            "\t",
+            "\tmsg - Error message to display.",
+            "\thelp - True to show the help text in addition to the error, false otherwise.",
+            "*/",
+            "function showError(msg, help) {",
+            "\tconsole.error(msg);",
+            "\t",
+            "\tif (help) {",
+            "\t\tshowHelp();",
+            "\t}",
+            "\telse {",
+            "\t\tprocess.exit();",
+            "\t}",
+            "}",
+            "",
+            "/* Shows the help text.",
+            "*/",
+            "function showHelp() {",
+            "\tprocess.exit();",
+            "}",
+            "",
+            "// Main execution entry point",
+            ";(function(undefined) {",
+            "\tif (ARGS['help']) {",
+            "\t\tshowHelp();",
+            "\t}",
+            "})(void 0);"
+        ],
+        "description": "Node CLI script boilerplate"
+    },
+    "React component boilerplate": {
+        "prefix": "///rcomp",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Dependencies.",
+            "import React from 'react';",
+            "",
+            "/* ${1:Component description.}",
+            "\t",
+            "\tprops - Component properties.",
+            "*/",
+            "export default (props) => {${0}",
+            "};"
+        ],
+        "description": "React component boilerplate"
+    },
+    "React component class boilerplate": {
+        "prefix": "///rccomp",
+        "scope": "javascript,typescript",
+        "body": [
+            "// Dependencies.",
+            "import React, { Component } from 'react';",
+            "",
+            "/* ${1:Component description.}",
+            "*/",
+            "export default class ${2:ClassName} extends Component {",
+            "\t${3:/* Constructor for ${2:ClassName}.",
+            "\t\t",
+            "\t\tprops - Component properties.",
+            "\t*/",
+            "\tconstructor(props) {",
+            "\t\tsuper(props);",
+            "\t\\}",
+            "\t",
+            "\t}${4:/* Component mount handler.",
+            "\t*/",
+            "\tcomponentDidMount() {\\}",
+            "\t",
+            "\t}${5:/* Component unmount handler.",
+            "\t*/",
+            "\tcomponentWillUnmount() {\\}",
+            "\t",
+            "\t}/* Renders the component.",
+            "\t*/",
+            "\trender() {${0}}",
+            "}"
+        ],
+        "description": "React component class boilerplate"
+    },
+    "React component JSX ref property": {
+        "prefix": "///ref",
+        "scope": "javascript,typescript",
+        "body": [
+            "ref={(r) => { this.${1:_elem} = r; }}"
+        ],
+        "description": "React component JSX ref property"
+    },
+    "PHP class property declaration": {
+        "prefix": "///var",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @access ${2:private}",
+            " * @var ${3}",
+            " */",
+            "${2} \\$${4:varName} = ${5:null};"
+        ],
+        "description": "PHP class property declaration"
+    },
+    "PHP class constant declaration": {
+        "prefix": "///const",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @const ${2:CONST_NAME}",
+            " */",
+            "const ${2:CONST_NAME} = ${3:value};"
+        ],
+        "description": "PHP class constant declaration"
+    },
+    "PHP function declaration": {
+        "prefix": "///func",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @return ${2}",
+            " */",
+            "function ${3:functionName}(${4:\\$param}) {${0}",
+            "}"
+        ],
+        "description": "PHP function declaration"
+    },
+    "PHP define() with optional check": {
+        "prefix": "///def",
+        "scope": "php",
+        "body": [
+            "${3:!defined('${1:NAME}') && }define('${1:NAME}', ${2:value});$0"
+        ],
+        "description": "PHP define() with optional check"
+    },
+    "PHP class method declaration": {
+        "prefix": "///cfunc",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @access ${2:public}",
+            " *",
+            " * @return ${3}",
+            " */",
+            "${2} function ${4:functionName}(${5:\\$param}) {",
+            "\tparent::${4}(${5});${0}",
+            "}"
+        ],
+        "description": "PHP class method declaration"
+    },
+    "PHP abstract class method declaration": {
+        "prefix": "///abfunc",
+        "scope": "php",
+        "body": [
+            "/**",
+            " * ${1}",
+            " *",
+            " * @abstract",
+            " * @access ${2:public}",
+            " */",
+            "abstract ${2} function ${4:functionName}(${5:\\$param});"
+        ],
+        "description": "PHP abstract class method declaration"
+    },
+    "PHP static variable declaration": {
+        "prefix": "///svar",
+        "scope": "php",
+        "body": [
+            "static \\$${1:varName} = null;",
+            "",
+            "if (null === \\$${1:varName}) {",
+            "\t\\$${1:varName} = ${2:null};${0}",
+            "}"
+        ],
+        "description": "PHP static variable declaration"
+    },
+    "PHP safe isset() and compare": {
+        "prefix": "///icomp",
+        "scope": "php",
+        "body": [
+            "@isset(${1:var}) && ${2:value} ${3:===} ${1}"
+        ],
+        "description": "PHP safe isset() and compare"
+    },
+    "PHP safe isset() and assignment": {
+        "prefix": "///istore",
+        "scope": "php",
+        "body": [
+            "@isset(${1:var}) ? ${1} : ${2:null};"
+        ],
+        "description": "PHP safe isset() and assignment"
+    },
+    "PHP debug <pre>": {
+        "prefix": "///pre",
+        "scope": "php",
+        "body": [
+            "echo '<pre>';",
+            "var_dump(${1});${0}",
+            "echo '</pre>';${2:",
+            "exit;}"
+        ],
+        "description": "PHP debug <pre>"
+    },
+    "WordPress safe file header": {
+        "prefix": "///wpsafe",
+        "scope": "php",
+        "body": [
+            "!defined('ABSPATH') && exit;"
+        ],
+        "description": "WordPress safe file header"
+    }
+}
