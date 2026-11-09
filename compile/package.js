@@ -1,15 +1,17 @@
+// Dependencies
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
 // Recreate __dirname since it's not available in ES modules by default
 const __filename = fileURLToPath(import.meta.url),
-  __dirname = path.dirname(__filename);
+  __dirname = path.dirname(__filename),
+  DIR_ROOT = path.join(__dirname, '..');
 
 // File paths
-const pkgManifestPath = path.join(__dirname, 'package.src.json'),
-  keybindingsPath = path.join(__dirname, 'src', 'keybindings.json'),
-  outManifestPath = path.join(__dirname, 'package.json');
+const pkgManifestPath = path.join(DIR_ROOT, 'package.src.json'),
+  keybindingsPath = path.join(DIR_ROOT, 'src', 'keybindings.json'),
+  outManifestPath = path.join(DIR_ROOT, 'package.json');
 
 try {
   // Read and parse both files

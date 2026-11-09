@@ -16,7 +16,7 @@
     "vscode": "^1.103.0"
   },
   "scripts": {
-    "compile-package": "node compile-package.js",
+    "compile:package": "node compile/package.js",
     "update": "git checkout main && git pull",
     "clean": "if [ -d \"dist\" ]; then rm dist/*.vsix; fi",
     "build": "mkdir -p dist && npx @vscode/vsce package --out dist",
