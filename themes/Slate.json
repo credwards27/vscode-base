@@ -995,7 +995,7 @@
 			}
 		},
 		{
-			"scope": "variable.other.property, variable.other.constant, meta.property.object, punctuation.definition.block.tag, storage.type.class",
+			"scope": "variable.other.property, variable.other.constant, variable.other.constant.property, meta.export variable.other.readwrite, meta.property.object, punctuation.definition.block.tag, storage.type.class",
 			"settings": {
 				"foreground": "#E1B47D",
 			}
@@ -1025,7 +1025,7 @@
 			}
 		},
 		{
-			"scope": "entity.name.type.instance, variable.other.class, variable.language.super, variable.language.this, variable.other.php, variable.other.property.php",
+			"scope": "entity.name.type, entity.name.type.instance, variable.other.class, variable.other.constant.object, variable.language.super, variable.language.this, variable.other.php, variable.other.property.php, text.html.markdown markup.list",
 			"settings": {
 				"foreground": "#C95E60"
 			}
@@ -1068,7 +1068,7 @@
 			}
 		},
 		{
-			"scope": "none",
+			"scope": "text.html.markdown fenced_code.block.language",
 			"settings": {
 				"-foreground": "#CDA869",
 				"foreground": "#BA7E5E"
@@ -1102,13 +1102,13 @@
 			}
 		},
 		{
-			"scope": "entity.other.attribute-name.id, punctuation.definition.entity, punctuation.definition.template-expression, punctuation.quasi.element.begin, punctuation.quasi.element.end, punctuation.separator, punctuation.accessor, punctuationmeta.delimiter.comma, punctuation.terminator.statement, punctuation.terminator.expression, punctuation.definition.section.case-statement",
+			"scope": "entity.other.attribute-name.id, punctuation.definition.entity, punctuation.definition.template-expression, punctuation.quasi.element.begin, punctuation.quasi.element.end, punctuation.separator, punctuation.accessor, meta.delimiter.comma, punctuation.terminator.statement, punctuation.terminator.expression, punctuation.definition.section.case-statement",
 			"settings": {
 				"foreground": "#7587A6"
 			}
 		},
 		{
-			"scope": "punctuation.separator.parameter",
+			"scope": "punctuation.separator.parameter, punctuation.separator.comma",
 			"settings": {
 				"foreground": "#a7a7a7"
 			}
@@ -1155,7 +1155,7 @@
 			}
 		},
 		{
-			"scope": "markup.raw.inline",
+			"scope": "markup.raw.inline, markup.inline.raw.string",
 			"settings": {
 				"foreground": "#8F9D6A"
 			}
